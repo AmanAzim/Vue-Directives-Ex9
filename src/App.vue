@@ -6,7 +6,7 @@
                 <!-- Exercise -->
                 <!-- Build a Custom Directive which works like v-on (Listen for Events) -->
 
-                <button v-on:click="myFunction">Click</button>
+                <button v-myOn:click="myFunction">Click</button>
                 <h1>{{myFunction()}}</h1>
 
             </div>
@@ -16,6 +16,13 @@
 
 <script>
     export default {
+        directives:{
+            'myOn':{
+                bind(el, binding, vnode){
+
+                }
+            }
+        }
     }
 </script>
 
