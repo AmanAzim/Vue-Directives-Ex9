@@ -7,7 +7,7 @@
                 <!-- Build a Custom Directive which works like v-on (Listen for Events) -->
 
                 <button v-myOn:click="myFunction">Click</button>
-                <h1>{{myFunction()}}</h1>
+                <h1>{{counter}}</h1>
 
             </div>
         </div>
@@ -16,11 +16,24 @@
 
 <script>
     export default {
-        directives:{
+       directives:{
             'myOn':{
                 bind(el, binding, vnode){
-
+                    if(binding.arg=='click'){
+                        let func=binding.value;
+                        el.addEventListener("click", func );
+                    }
                 }
+            },
+        },
+        data(){
+            return{
+                counter:0,
+            };
+        },
+        methods:{
+            myFunction(){
+                this.counter++;
             }
         }
     }
