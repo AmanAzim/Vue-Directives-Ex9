@@ -40,9 +40,7 @@
             },
            'myOn2':{
                bind(el, binding, vnode){
-                   el.onclick=function () {
-                       binding.value();
-                   }
+                   el.onclick= binding.value;
                }
            },
            'myOn3':{
